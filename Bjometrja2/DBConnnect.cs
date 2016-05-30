@@ -72,61 +72,43 @@ namespace Bjometrja2
             }
         }
 
-        public List<List<string>> SelectAll()
+        public DataTable SelectAll()
         {
-            string query = "SELECT * FROM tx_badanie01";
-
-            //Create a list to store the result
-            List<List<string>> list = new List<List<string>>(4);
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
-            list[3] = new List<string>();
-
-            //Open connection
+            string query = "SELECT * FROM tx_badanie01 ORDER BY user_id,time";
             if (this.OpenConnection() == true)
             {
-                //Create Command
+
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    list[0].Add(dataReader["user_id"] + "");
-                    list[1].Add(dataReader["input0"] + "");
-                    list[2].Add(dataReader["input1"] + "");
-                    list[3].Add(dataReader["IP"] + "");
+                //MySqlDataReader dataReader = cmd.ExecuteReader();              
+                //while (dataReader.Read())
+                //{
+                //    list[0].Add(dataReader["user_id"] + "");
+                //    list[1].Add(dataReader["input0"] + "");
+                //    list[2].Add(dataReader["input1"] + "");
+                //    list[3].Add(dataReader["IP"] + "");
 
-                }
-                //close Data Reader
-                dataReader.Close();
+                //}
+                //dataReader.Close();
 
-                //close Connection
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
                 this.CloseConnection();
 
-                //return list to be displayed
-                return list;
+                return dt;
             }
             else
             {
-                return list;
+                return null;
             }
         }
         public DataTable SelectByID(int id)
         {
             string query = "SELECT * FROM tx_badanie01 WHERE user_id = " + id;
-
-            List<List<string>> list = new List<List<string>>(4);
-            list.Add(new List<string>());
-            list.Add(new List<string>());
-            list.Add(new List<string>());
-            list.Add(new List<string>());
-
             if (this.OpenConnection() == true)
             {
-                //Create Command
+                
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                
                 //MySqlDataReader dataReader = cmd.ExecuteReader();              
@@ -142,9 +124,7 @@ namespace Bjometrja2
 
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
-                
-
+                da.Fill(dt);              
                 this.CloseConnection();
 
                 return dt;

@@ -18,7 +18,7 @@ namespace Bjometrja2
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DBConnect dbconnector = new DBConnect();
-            DataTable lista = dbconnector.SelectByID(176);
+            DataTable lista = dbconnector.SelectAll();
             //foreach (List<string> item in lista)
             //{
             //    foreach (string elo in item)
