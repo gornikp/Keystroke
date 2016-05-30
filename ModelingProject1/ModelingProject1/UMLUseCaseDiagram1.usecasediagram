@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="f8999ef9-24bd-4e64-bad7-c95418229ac2" name="UMLUseCaseDiagram1" linkedPackageId="fa09e89d-3ded-4fb3-8a83-135855e95ed1" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="4261126b-0b7a-4b20-9b48-7b465371c899">
+      <profileInstance Id="4d272f65-9493-46bc-bc9b-cc06980c25a0" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9589bd9b-0f4d-45f4-8869-776861a8e6d1">
+      <profileInstance Id="b72d1260-449c-4d8f-8f69-05f5d5a9feec" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="4e38f70e-84b6-4b9a-ac09-24ec052fbe6e" name="Użytkownik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0db63f10-da45-4b47-8801-65a7e5cfb1ce" />
+        <targetEnds>
+          <association Id="5d53b9db-6ff3-48b8-93ad-d14e9f7f5100" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Zarejestruj" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4354dc4e-e2ae-40e5-9348-30bb92d37bb8" LastKnownName="Zarejestruj" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="43ae610c-8b1a-4d84-9e26-220a2ebf55b0" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d9021b62-2497-4150-91a6-dc0f2fa900f0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8c775afa-6b8a-4cff-a61a-e50c89ddf553" name="Zarejestruj" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="995e5bc3-f332-424c-9d2a-8417baf7687d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d478c8c3-aa22-476b-83dd-5e39b2681ea9" />
+          </association>
+          <association Id="44b2b8ca-01bd-4e14-bdef-27be1756a1e3" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="Zaloguj" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="97ee108e-6365-43fc-8818-4477b6bcbd9e" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="70e45a59-0b0a-4120-ade8-b80391010fdf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8ac76ac8-cfef-453e-86a6-6e20f8a97a52" name="Zaloguj" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3e7486ff-9703-4c3d-9f7d-83b106adf02b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="55f9bf64-0080-4f0f-a371-4ed4aa20392f" />
+          </association>
+          <association Id="50bc5488-ae33-4065-b3fb-1ca48503c7b8" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="ustaw grafik" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8a373790-d9ff-4946-82f6-534fd24a35f4" LastKnownName="ustaw grafik" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4cc4ce1b-ac44-4095-988c-801bf434531f" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5bdefcab-59e8-4bf5-ae6f-995cae5901e4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="faa5d0e7-0c2c-424c-a3ff-bc1df183757a" name="ustaw grafik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4bad782b-da1f-4a40-8393-f6186d4ca8eb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="efb10734-2dee-4bbe-8bba-8f4b2819689d" />
+          </association>
+          <association Id="db25b649-887e-4500-af36-3fcbadfce7d2" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="wypożycz" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="713dea8a-108e-447e-b9e2-f37492a71e52" LastKnownName="wypożycz" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f928eef1-f7c5-4538-9be5-4f700674aa8c" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2629344c-b65e-4268-981e-bdbf378ab710" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c2978b53-0cd4-4316-ae62-8c56a3be8ada" name="wypożycz" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d1b15ff7-5653-4f59-8d7d-0d088d296a0f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2902d600-d131-450e-ab1f-e8904d2477a9" />
+          </association>
+          <association Id="7188d7e8-3e84-4b2f-a0fb-9fb57dd7738e" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="wypożycz doraźnie" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="357c71ac-8537-4b5b-a750-1ba20db583d6" LastKnownName="wypożycz doraźnie" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60f7e04e-e1d5-4eef-b292-aad1333b5336" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0d5806e0-021c-417b-87cf-c90ce5bcf56c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5c18eaa2-5253-49ba-80e5-e040d2b5d7b7" name="wypożycz doraźnie" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1032733e-6455-476e-95ad-c790fbc5a5b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="613c5e18-b4bd-40d7-89a7-b1170d8cafdd" />
+          </association>
+          <association Id="26232e9c-0fc1-41d5-a7e9-d111dfa82ac3" isDerived="false" sourceEndRoleName="Użytkownik" targetEndRoleName="anuluj wypożyczenie/grafik" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b0bd3c46-77fb-4a4d-9a54-b991005b431a" LastKnownName="anuluj wypożyczenie/grafik" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a0df256f-9383-49af-8c46-72ebd4f321bf" name="Użytkownik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="278470f0-9bd5-4579-9284-8fec22323361" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ab7cebf9-55a1-4467-9442-9de49c2ea251" name="anuluj wypożyczenie/grafik" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="72223585-0a2f-4159-8a5e-ad38e0e56f78" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aa26d548-3d31-4e1e-8baf-cb25c5d7245c" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="67e3696f-570d-4431-992e-1f8b4a6f93b6" name="SYSTEM" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="343682dc-8a27-4d37-81b7-38732bf107ad" />
+        <targetEnds>
+          <association Id="5c889714-db43-4842-be59-4db21add987b" isDerived="false" sourceEndRoleName="SYSTEM" targetEndRoleName="zapytania do BD" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5815f9e7-5a96-4640-9a5c-773c60bc9002" LastKnownName="zapytania do BD" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4451242-fb4f-40dc-9fa0-49e71ff90e94" name="SYSTEM" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e622aa89-4ac4-4e96-842d-9cb43cb10898" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="edbc4791-0c18-45d8-a849-2d55c8cede7e" name="zapytania do BD" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8d782228-d79f-45f7-b9b8-c77cdd463622" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="556d5018-2be7-46e2-aea3-78fb1908b208" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="4c7c7f57-054e-48de-b38e-4c36e6202bf7" name="Admin" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0f8bf976-ee2d-4b58-9396-59ce0308538b" />
+        <generalsInternal>
+          <generalization Id="5f4b1697-9fce-4de4-aa5e-5706b3d6785c" isSubstitutable="false">
+            <actorMoniker Id="4e38f70e-84b6-4b9a-ac09-24ec052fbe6e" LastKnownName="Użytkownik" />
+            <elementDefinition Id="3fc35b2a-d95a-41f4-bcf9-70163c40218d" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="c29fa911-40a6-4245-8bc6-8a9dcf876fb6" isDerived="false" sourceEndRoleName="Admin" targetEndRoleName="zapytania do BD" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5815f9e7-5a96-4640-9a5c-773c60bc9002" LastKnownName="zapytania do BD" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f03db27f-fc4a-4130-8a29-1f92d8bfe58b" name="Admin" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="81261372-55ba-43f0-b913-e346a894ac11" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="98b05b32-f24a-45df-ba14-7f5d14e36697" name="zapytania do BD" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8fa9bfd3-1760-44a3-afd3-5bace0c0e7a4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="df707084-e9e8-46ec-8091-4e229bc21046" />
+          </association>
+          <association Id="9ef303f2-e950-430f-9196-2768b8de8f51" isDerived="false" sourceEndRoleName="Admin" targetEndRoleName="zarządzanie produktami" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5637ffed-0b7f-4726-9f0a-0070e3694620" LastKnownName="zarządzanie produktami" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4388f04e-96d5-4d66-84a2-d302b9be08a6" name="Admin" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a27ad494-0381-4dd4-89ea-3666471032ba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="da831c28-c603-4155-ad63-6c1d2625f76b" name="zarządzanie produktami" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a4408717-7147-4f2e-bcb9-8780bf7f645d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2cc2015f-7d73-481c-ae1d-3970b24eb2ea" />
+          </association>
+          <association Id="1b09e973-56be-4d60-9471-16b39e0b3be7" isDerived="false" sourceEndRoleName="Admin" targetEndRoleName="zarządzanie wszystkimi wypożyczeniami" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e98b8726-1d2b-49e5-9b80-19572f94e0fb" LastKnownName="zarządzanie wszystkimi wypożyczeniami" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="35a50f59-20f5-4261-b64f-d9ecd1c8cd4b" name="Admin" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3c67187f-c222-4077-a22c-794d3e600450" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6efc0dcd-afc9-4bb1-9256-70e0823995ea" name="zarządzanie wszystkimi wypożyczeniami" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="17df6cb1-dfc1-4584-bff1-d1435055c31a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7f84d20e-661b-491f-8e56-1f992daccb17" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" name="Zaloguj" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="784e7b14-6cfe-4b69-b424-ccbc47115adf" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4354dc4e-e2ae-40e5-9348-30bb92d37bb8" name="Zarejestruj" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="448af6e9-8431-4a28-9ac9-456399754a74" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8a373790-d9ff-4946-82f6-534fd24a35f4" name="ustaw grafik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f82c7e7b-39de-4c10-9fb7-a9bcd1cc79e4" />
+        <additions>
+          <include Id="4ed2cd32-945d-4698-8a9a-577ef8ebcac9">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <elementDefinition Id="6b717671-ee7c-40c9-8735-84e14626e80d" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8cda0826-e020-428a-9668-cd6b7a847d03" name="Help" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="08e6e27b-25a0-4af9-9358-b9604aa65fce" />
+        <extendedCases>
+          <extend Id="147ad130-938c-4e3e-9ade-946c7f6e4628">
+            <useCaseMoniker Id="4354dc4e-e2ae-40e5-9348-30bb92d37bb8" LastKnownName="Zarejestruj" />
+            <elementDefinition Id="956ed4a6-0dac-400a-843b-898b2633f4d4" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="713dea8a-108e-447e-b9e2-f37492a71e52" name="wypożycz" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f0585bd0-8881-42f8-9773-a9e05ef648d0" />
+        <additions>
+          <include Id="f03fd3b2-8139-4b2c-b75b-c7226033f7d0">
+            <useCaseMoniker Id="8a373790-d9ff-4946-82f6-534fd24a35f4" LastKnownName="ustaw grafik" />
+            <elementDefinition Id="b8f54a4c-59c6-436d-89d5-9ebfc293cd84" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="357c71ac-8537-4b5b-a750-1ba20db583d6" name="wypożycz doraźnie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="219b331c-2b59-4c9d-80e4-1807ff88e748" />
+        <additions>
+          <include Id="a3bfedcc-3c60-413b-aef4-0606558f4c69">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <elementDefinition Id="59cc76bc-c406-478a-b00b-423f3e0611e9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b0bd3c46-77fb-4a4d-9a54-b991005b431a" name="anuluj wypożyczenie/grafik" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="80f65ee8-2c05-43ea-8373-854a5251dff2" />
+        <additions>
+          <include Id="e655b130-44c5-4f89-a803-180794be6f5a">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <elementDefinition Id="8b07a4b5-85ca-4639-8ca3-bc2c2a59e58a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5815f9e7-5a96-4640-9a5c-773c60bc9002" name="zapytania do BD" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5d716f5f-3919-4ad5-b029-475118305d28" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5637ffed-0b7f-4726-9f0a-0070e3694620" name="zarządzanie produktami" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe7af93d-a760-4f9c-9fc3-1bdbb51858af" />
+        <additions>
+          <include Id="a1cec5c3-df16-4302-9f56-e104ce28257e">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <elementDefinition Id="c44b5d78-1e26-482d-a8b1-85cc741b3e0a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e98b8726-1d2b-49e5-9b80-19572f94e0fb" name="zarządzanie wszystkimi wypożyczeniami" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1b5080c0-ca81-46b1-8023-3109421c7770" />
+        <additions>
+          <include Id="c51ee993-41a0-4120-9595-97fe28b46fe8">
+            <useCaseMoniker Id="84ff6f39-2234-4524-b4eb-6fe7882183ba" LastKnownName="Zaloguj" />
+            <elementDefinition Id="242d933f-dffa-4b68-b328-e0cea33afde9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="fa09e89d-3ded-4fb3-8a83-135855e95ed1" name="ModelingProject1">
+    <elementDefinition Id="c3d25426-e6c0-4655-8eb0-d1bc1cd8c8f7" />
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="c3d25426-e6c0-4655-8eb0-d1bc1cd8c8f7"
+  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="0db63f10-da45-4b47-8801-65a7e5cfb1ce"
+        name="Użytkownik"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d478c8c3-aa22-476b-83dd-5e39b2681ea9"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Zarejestruj"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="448af6e9-8431-4a28-9ac9-456399754a74"
+              LastKnownName="Zarejestruj"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9021b62-2497-4150-91a6-dc0f2fa900f0"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="995e5bc3-f332-424c-9d2a-8417baf7687d"
+                  name="Zarejestruj"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="55f9bf64-0080-4f0f-a371-4ed4aa20392f"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="Zaloguj"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="70e45a59-0b0a-4120-ade8-b80391010fdf"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3e7486ff-9703-4c3d-9f7d-83b106adf02b"
+                  name="Zaloguj"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="efb10734-2dee-4bbe-8bba-8f4b2819689d"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="ustaw grafik"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f82c7e7b-39de-4c10-9fb7-a9bcd1cc79e4"
+              LastKnownName="ustaw grafik"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5bdefcab-59e8-4bf5-ae6f-995cae5901e4"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4bad782b-da1f-4a40-8393-f6186d4ca8eb"
+                  name="ustaw grafik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2902d600-d131-450e-ab1f-e8904d2477a9"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="wypożycz"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f0585bd0-8881-42f8-9773-a9e05ef648d0"
+              LastKnownName="wypożycz"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2629344c-b65e-4268-981e-bdbf378ab710"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d1b15ff7-5653-4f59-8d7d-0d088d296a0f"
+                  name="wypożycz"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="613c5e18-b4bd-40d7-89a7-b1170d8cafdd"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="wypożycz doraźnie"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="219b331c-2b59-4c9d-80e4-1807ff88e748"
+              LastKnownName="wypożycz doraźnie"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d5806e0-021c-417b-87cf-c90ce5bcf56c"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1032733e-6455-476e-95ad-c790fbc5a5b5"
+                  name="wypożycz doraźnie"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="aa26d548-3d31-4e1e-8baf-cb25c5d7245c"
+            isDerived="false"
+            sourceEndRoleName="Użytkownik"
+            targetEndRoleName="anuluj wypożyczenie/grafik"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="80f65ee8-2c05-43ea-8373-854a5251dff2"
+              LastKnownName="anuluj wypożyczenie/grafik"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="278470f0-9bd5-4579-9284-8fec22323361"
+                  name="Użytkownik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="72223585-0a2f-4159-8a5e-ad38e0e56f78"
+                  name="anuluj wypożyczenie/grafik"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="343682dc-8a27-4d37-81b7-38732bf107ad"
+        name="SYSTEM"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="556d5018-2be7-46e2-aea3-78fb1908b208"
+            isDerived="false"
+            sourceEndRoleName="SYSTEM"
+            targetEndRoleName="zapytania do BD"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5d716f5f-3919-4ad5-b029-475118305d28"
+              LastKnownName="zapytania do BD"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e622aa89-4ac4-4e96-842d-9cb43cb10898"
+                  name="SYSTEM"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8d782228-d79f-45f7-b9b8-c77cdd463622"
+                  name="zapytania do BD"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="0f8bf976-ee2d-4b58-9396-59ce0308538b"
+        name="Admin"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3fc35b2a-d95a-41f4-bcf9-70163c40218d"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="0db63f10-da45-4b47-8801-65a7e5cfb1ce"
+              LastKnownName="Użytkownik"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="df707084-e9e8-46ec-8091-4e229bc21046"
+            isDerived="false"
+            sourceEndRoleName="Admin"
+            targetEndRoleName="zapytania do BD"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5d716f5f-3919-4ad5-b029-475118305d28"
+              LastKnownName="zapytania do BD"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="81261372-55ba-43f0-b913-e346a894ac11"
+                  name="Admin"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8fa9bfd3-1760-44a3-afd3-5bace0c0e7a4"
+                  name="zapytania do BD"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2cc2015f-7d73-481c-ae1d-3970b24eb2ea"
+            isDerived="false"
+            sourceEndRoleName="Admin"
+            targetEndRoleName="zarządzanie produktami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fe7af93d-a760-4f9c-9fc3-1bdbb51858af"
+              LastKnownName="zarządzanie produktami"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a27ad494-0381-4dd4-89ea-3666471032ba"
+                  name="Admin"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a4408717-7147-4f2e-bcb9-8780bf7f645d"
+                  name="zarządzanie produktami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7f84d20e-661b-491f-8e56-1f992daccb17"
+            isDerived="false"
+            sourceEndRoleName="Admin"
+            targetEndRoleName="zarządzanie wszystkimi wypożyczeniami"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1b5080c0-ca81-46b1-8023-3109421c7770"
+              LastKnownName="zarządzanie wszystkimi wypożyczeniami"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3c67187f-c222-4077-a22c-794d3e600450"
+                  name="Admin"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17df6cb1-dfc1-4584-bff1-d1435055c31a"
+                  name="zarządzanie wszystkimi wypożyczeniami"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+        name="Zaloguj"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="448af6e9-8431-4a28-9ac9-456399754a74"
+        name="Zarejestruj"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f82c7e7b-39de-4c10-9fb7-a9bcd1cc79e4"
+        name="ustaw grafik"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="6b717671-ee7c-40c9-8735-84e14626e80d">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="08e6e27b-25a0-4af9-9358-b9604aa65fce"
+        name="Help"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="956ed4a6-0dac-400a-843b-898b2633f4d4">
+            <useCaseMoniker
+              Id="448af6e9-8431-4a28-9ac9-456399754a74"
+              LastKnownName="Zarejestruj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f0585bd0-8881-42f8-9773-a9e05ef648d0"
+        name="wypożycz"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="b8f54a4c-59c6-436d-89d5-9ebfc293cd84">
+            <useCaseMoniker
+              Id="f82c7e7b-39de-4c10-9fb7-a9bcd1cc79e4"
+              LastKnownName="ustaw grafik"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="219b331c-2b59-4c9d-80e4-1807ff88e748"
+        name="wypożycz doraźnie"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="59cc76bc-c406-478a-b00b-423f3e0611e9">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="80f65ee8-2c05-43ea-8373-854a5251dff2"
+        name="anuluj wypożyczenie/grafik"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="8b07a4b5-85ca-4639-8ca3-bc2c2a59e58a">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5d716f5f-3919-4ad5-b029-475118305d28"
+        name="zapytania do BD"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe7af93d-a760-4f9c-9fc3-1bdbb51858af"
+        name="zarządzanie produktami"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="c44b5d78-1e26-482d-a8b1-85cc741b3e0a">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1b5080c0-ca81-46b1-8023-3109421c7770"
+        name="zarządzanie wszystkimi wypożyczeniami"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="242d933f-dffa-4b68-b328-e0cea33afde9">
+            <useCaseMoniker
+              Id="784e7b14-6cfe-4b69-b424-ccbc47115adf"
+              LastKnownName="Zaloguj"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="8126ce91-aaea-4880-8aa3-0ceecd07040f"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="bc428c9b-0121-4371-b0c8-b00d73c1f991"
+            name="Initial1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

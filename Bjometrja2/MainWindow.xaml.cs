@@ -24,5 +24,19 @@ namespace Bjometrja2
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            DBConnect dbconnector = new DBConnect();
+            var lista = dbconnector.SelectByID(176);
+            foreach (List<string> item in lista)
+            {
+                foreach (string elo in item)
+                {
+                    Console.WriteLine(elo);
+                }
+            }
+            MessageBox.Show("done");
+        }
     }
 }
