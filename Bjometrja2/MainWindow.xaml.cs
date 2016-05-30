@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Bjometrja2
 {
@@ -28,15 +18,22 @@ namespace Bjometrja2
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DBConnect dbconnector = new DBConnect();
-            var lista = dbconnector.SelectByID(176);
-            foreach (List<string> item in lista)
-            {
-                foreach (string elo in item)
-                {
-                    Console.WriteLine(elo);
-                }
-            }
+            DataTable lista = dbconnector.SelectByID(176);
+            //foreach (List<string> item in lista)
+            //{
+            //    foreach (string elo in item)
+            //    {
+            //        Console.WriteLine(elo);
+            //    }
+            //}
+            dataGrid.AutoGenerateColumns = true;
+            dataGrid.ItemsSource = lista.DefaultView;
             MessageBox.Show("done");
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
