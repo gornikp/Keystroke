@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="286"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="286" KeyDown="textBox_KeyDown" KeyUp="textBox_KeyUp"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <DataGrid x:Name="dataGrid" Margin="10,63,10,10" SelectionChanged="dataGrid_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid" Margin="10,63,10,10"/>
+        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="170,38,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
 
     </Grid>
 </Window>
