@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Windows;
@@ -33,6 +34,22 @@ namespace Bjometrja2
         {
             DBConnect dbconnector = new DBConnect();
             DataTable lista = dbconnector.SelectAll();
+
+
+            string elo = lista.Rows[3].ItemArray[2].ToString();// pobiera input 1
+            string[] splittedstring = elo.Split(' ');
+            List<string[]> splied = new List<string[]>();
+            foreach (var item in splittedstring)
+            {
+                splied.Add(item.Split('_'));
+            }
+            //foreach (var keyEvent in splied)
+            //{
+            //    foreach (var item2 in collection)
+            //    {
+
+            //    }
+            //}
             dataGrid.AutoGenerateColumns = true;
             dataGrid.ItemsSource = lista.DefaultView;
             MessageBox.Show("done");
