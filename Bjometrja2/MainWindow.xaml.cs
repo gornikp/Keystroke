@@ -15,17 +15,25 @@ namespace Bjometrja2
     {
         Stopwatch timer;
         Stopwatch timer2;
+        DateTime sapceTimeCheck;
         public long[] MeanButtonDownTime;
         public long[] ButtonDownTime;
         public long[] ButtonDownCount;
+        DateTime buttonDown;
+        DateTime spaceDown;
+        TimeSpan sapceTime;
+        int spaceCounter;
         public MainWindow()
         {
             InitializeComponent();
             timer = new Stopwatch();
             timer2 = new Stopwatch();
+            sapceTimeCheck = new DateTime();
             ButtonDownTime = new long[26];
             ButtonDownCount = new long[26];
             MeanButtonDownTime = new long[26];
+            sapceTime = new TimeSpan();
+
         }
         
         private void button_Click(object sender, RoutedEventArgs e)
@@ -62,9 +70,11 @@ namespace Bjometrja2
             {
                 e.Handled = true;
             }
-            else if (e.Key == Key.Space)
+            if (KeyInterop.VirtualKeyFromKey(e.Key) == 32)
             {
-
+                spaceDown = sapceTimeCheck.Date;
+                sapceTime += spaceDown.Subtract(buttonDown);
+                spaceCounter++;
             }         
         }
 
@@ -74,15 +84,16 @@ namespace Bjometrja2
             {
                 e.Handled = true;
             }
-            else if ((e.Key != Key.Space))
+            if ((e.Key != Key.Space))
             {
+                buttonDown = sapceTimeCheck.Date;
                 int key = KeyInterop.VirtualKeyFromKey(e.Key) - 65;
                 ButtonDownTime[key] += timer2.ElapsedMilliseconds;
                 ButtonDownCount[key]++;
                 timer2.Stop();
                 timer2.Reset();
             }
-            else if (e.Key == Key.Space)
+            if (KeyInterop.VirtualKeyFromKey(e.Key) == 32)
             {
 
             }
@@ -101,7 +112,9 @@ namespace Bjometrja2
                 MeanButtonDownTime[i] = (ButtonDownTime[i] / ButtonDownCount[i]);
                 Console.WriteLine(MeanButtonDownTime[i]);
             }
+            int output = sapceTime.Milliseconds / spaceCounter;
             Console.WriteLine(meanTimeBetweenClicks);
+            Console.WriteLine(output);
         }
         private long SumOfArray(long[] array)
         {
