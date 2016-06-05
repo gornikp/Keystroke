@@ -18,7 +18,6 @@ namespace Bjometrja2
         public long[] MeanButtonDownTime;
         public long[] ButtonDownTime;
         public long[] ButtonDownCount;
-        public long[] TimeBetweenClicks;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,7 +25,6 @@ namespace Bjometrja2
             timer2 = new Stopwatch();
             ButtonDownTime = new long[26];
             ButtonDownCount = new long[26];
-            TimeBetweenClicks = new long[26];
             MeanButtonDownTime = new long[26];
         }
         
@@ -60,7 +58,7 @@ namespace Bjometrja2
             if (!timer.IsRunning)
                 timer.Start();
             timer2.Restart();
-            if (!(e.Key >= Key.A && e.Key <= Key.Z))
+            if (!(e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Space))
             {
                 e.Handled = true;
             }
@@ -72,7 +70,7 @@ namespace Bjometrja2
 
         private void textBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (!(e.Key >= Key.A && e.Key <= Key.Z))
+            if (!(e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Space))
             {
                 e.Handled = true;
             }
@@ -92,6 +90,10 @@ namespace Bjometrja2
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
+            long meanTimeBetweenClicks = timer.ElapsedMilliseconds;
+            meanTimeBetweenClicks -= SumOfArray(ButtonDownTime); /// nalezy odjąć jeszcze czas spacji
+            meanTimeBetweenClicks /= ( SumOfArray(ButtonDownCount) -1);
             for (int i = 0; i < 26; i++)
             {
                 if (ButtonDownCount[i] == 0)
@@ -99,6 +101,16 @@ namespace Bjometrja2
                 MeanButtonDownTime[i] = (ButtonDownTime[i] / ButtonDownCount[i]);
                 Console.WriteLine(MeanButtonDownTime[i]);
             }
+            Console.WriteLine(meanTimeBetweenClicks);
+        }
+        private long SumOfArray(long[] array)
+        {
+            long sum = 0;
+            foreach (var item in array)
+            {
+                sum += item;
+            }
+            return sum;
         }
     } 
 }
