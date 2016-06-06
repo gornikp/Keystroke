@@ -29,6 +29,14 @@ namespace Bjometrja2
         public MainWindow()
         {
             InitializeComponent();
+            restartValues();
+        }
+        private void restartValues ()
+        {
+            textBox.IsEnabled = true;
+            textBoxFirst.IsEnabled = false;
+            textBoxSecond.IsEnabled = false;
+            textBoxThird.IsEnabled = false;
             vectors1 = new List<long[]>(3);
             vectors2 = new List<long[]>(3);
             timer = new Stopwatch();
@@ -38,7 +46,7 @@ namespace Bjometrja2
             sapceTime = new TimeSpan();
             sapceTime2 = new TimeSpan();
             previousWasSpace = false;
-            for (int i=0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 vectors1.Add(new long[26]);
                 vectors2.Add(new long[4]);
@@ -47,10 +55,9 @@ namespace Bjometrja2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            restartValues();
             DBConnect dbconnector = new DBConnect();
             DataTable lista = dbconnector.SelectAll();
-
-
             string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1
             string[] splittedstring = elo.Split(' ');
             List<string[]> splied = new List<string[]>();
@@ -152,6 +159,9 @@ namespace Bjometrja2
             if (value1 && value2 && value3)
             {
                 textBox.IsEnabled = true;
+                textBoxFirst.IsEnabled = false;
+                textBoxSecond.IsEnabled = false;
+                textBoxThird.IsEnabled = false;
             }
             else
                 MessageBox.Show("NaN");
