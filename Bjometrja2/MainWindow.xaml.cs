@@ -15,45 +15,51 @@ namespace Bjometrja2
     {
         Stopwatch timer;
         Stopwatch timer2;
-        DateTime sapceTimeCheck;
         public long[] MeanButtonDownTime;
         public long[] ButtonDownTime;
         public long[] ButtonDownCount;
         DateTime buttonDown;
         DateTime spaceDown;
         TimeSpan sapceTime;
+        TimeSpan sapceTime2;
+        bool previousWasSpace;
         int spaceCounter;
+        int spaceCounter2;
         public MainWindow()
         {
             InitializeComponent();
             timer = new Stopwatch();
             timer2 = new Stopwatch();
-            sapceTimeCheck = new DateTime();
             ButtonDownTime = new long[26];
             ButtonDownCount = new long[26];
             MeanButtonDownTime = new long[26];
             sapceTime = new TimeSpan();
+            sapceTime2 = new TimeSpan();
+            previousWasSpace = false;
 
         }
-        
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             DBConnect dbconnector = new DBConnect();
             DataTable lista = dbconnector.SelectAll();
 
 
-            string elo = lista.Rows[3].ItemArray[2].ToString();// pobiera input 1
+            string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1
             string[] splittedstring = elo.Split(' ');
             List<string[]> splied = new List<string[]>();
             foreach (var item in splittedstring)
             {
                 splied.Add(item.Split('_'));
             }
-            //foreach (var keyEvent in splied)
+            //foreach (string[] keyEvent in splied)
             //{
-            //    foreach (var item2 in collection)
+            //    foreach (var item in keyEvent)
             //    {
+            //        if(item[0] == 'd')
+            //        {
 
+            //        }
             //    }
             //}
             dataGrid.AutoGenerateColumns = true;
@@ -69,34 +75,31 @@ namespace Bjometrja2
             if (!(e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Space))
             {
                 e.Handled = true;
-            }
-            if (KeyInterop.VirtualKeyFromKey(e.Key) == 32)
+            } 
+            if(previousWasSpace)
             {
-                spaceDown = sapceTimeCheck.Date;
-                sapceTime += spaceDown.Subtract(buttonDown);
-                spaceCounter++;
-            }         
+                buttonDown = DateTime.Now;
+                sapceTime2 += buttonDown.Subtract(spaceDown);
+                spaceCounter2++;
+            }
+            previousWasSpace = false;
         }
 
         private void textBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (!(e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Space))
+            if (!(e.Key >= Key.A && e.Key <= Key.Z))
             {
                 e.Handled = true;
             }
-            if ((e.Key != Key.Space))
+            if (e.Key != Key.Space)
             {
-                buttonDown = sapceTimeCheck.Date;
+                buttonDown = DateTime.Now;
                 int key = KeyInterop.VirtualKeyFromKey(e.Key) - 65;
                 ButtonDownTime[key] += timer2.ElapsedMilliseconds;
                 ButtonDownCount[key]++;
                 timer2.Stop();
                 timer2.Reset();
-            }
-            if (KeyInterop.VirtualKeyFromKey(e.Key) == 32)
-            {
-
-            }
+            }     
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -104,7 +107,7 @@ namespace Bjometrja2
             timer.Stop();
             long meanTimeBetweenClicks = timer.ElapsedMilliseconds;
             meanTimeBetweenClicks -= SumOfArray(ButtonDownTime); /// nalezy odjąć jeszcze czas spacji
-            meanTimeBetweenClicks /= ( SumOfArray(ButtonDownCount) -1);
+            meanTimeBetweenClicks /= ( SumOfArray(ButtonDownCount) + spaceCounter);
             for (int i = 0; i < 26; i++)
             {
                 if (ButtonDownCount[i] == 0)
@@ -113,8 +116,12 @@ namespace Bjometrja2
                 Console.WriteLine(MeanButtonDownTime[i]);
             }
             int output = sapceTime.Milliseconds / spaceCounter;
+            int output2 = sapceTime2.Milliseconds / spaceCounter2;
+
+            //Console.WriteLine(SumOfArray(MeanButtonDownTime) / SumOfArray(ButtonDownCount));
             Console.WriteLine(meanTimeBetweenClicks);
             Console.WriteLine(output);
+            Console.WriteLine(output2);
         }
         private long SumOfArray(long[] array)
         {
@@ -124,6 +131,17 @@ namespace Bjometrja2
                 sum += item;
             }
             return sum;
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textBox.Text.ToString().EndsWith(" "))
+            {
+                spaceDown = DateTime.Now;
+                sapceTime += spaceDown.Subtract(buttonDown);
+                spaceCounter++;
+                previousWasSpace = true;
+            }
         }
     } 
 }
