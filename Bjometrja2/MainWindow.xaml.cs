@@ -15,7 +15,7 @@ namespace Bjometrja2
     {
         Stopwatch timer;
         Stopwatch timer2;
-        public long[] MeanButtonDownTime;
+
         public long[] ButtonDownTime;
         public long[] ButtonDownCount;
         DateTime buttonDown;
@@ -32,7 +32,6 @@ namespace Bjometrja2
             timer2 = new Stopwatch();
             ButtonDownTime = new long[26];
             ButtonDownCount = new long[26];
-            MeanButtonDownTime = new long[26];
             sapceTime = new TimeSpan();
             sapceTime2 = new TimeSpan();
             previousWasSpace = false;
@@ -102,23 +101,33 @@ namespace Bjometrja2
             }     
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e) // ogólnie pokazuje wszystkie wartości z obu wektorów trzeba tylko to wrzucać do wektora jakiegoś :)
         {
             timer.Stop();
+            long[] MeanButtonDownTime = new long[26];
             long meanTimeBetweenClicks = timer.ElapsedMilliseconds;
-            meanTimeBetweenClicks -= SumOfArray(ButtonDownTime); /// nalezy odjąć jeszcze czas spacji
+            long[] ButtonDownCount2 = (long[])ButtonDownCount.Clone(); // klonowanie by nie zmieniać globalnych zmiennych
+            long meanvalueHelper = 26;
+
+            meanTimeBetweenClicks -= SumOfArray(ButtonDownTime); 
             meanTimeBetweenClicks /= ( SumOfArray(ButtonDownCount) + spaceCounter);
+
             for (int i = 0; i < 26; i++)
             {
-                if (ButtonDownCount[i] == 0)
-                    ButtonDownCount[i] = 1;
-                MeanButtonDownTime[i] = (ButtonDownTime[i] / ButtonDownCount[i]);
+                if (ButtonDownCount2[i] == 0)
+                {
+                    ButtonDownCount2[i] = 1;
+                    meanvalueHelper--;
+                }
+                MeanButtonDownTime[i] = (ButtonDownTime[i] / ButtonDownCount2[i]);
                 Console.WriteLine(MeanButtonDownTime[i]);
             }
+
             int output = sapceTime.Milliseconds / spaceCounter;
             int output2 = sapceTime2.Milliseconds / spaceCounter2;
+            long meanbuttondowntime = SumOfArray(MeanButtonDownTime) / meanvalueHelper;
 
-            //Console.WriteLine(SumOfArray(MeanButtonDownTime) / SumOfArray(ButtonDownCount));
+            Console.WriteLine(meanbuttondowntime);
             Console.WriteLine(meanTimeBetweenClicks);
             Console.WriteLine(output);
             Console.WriteLine(output2);
