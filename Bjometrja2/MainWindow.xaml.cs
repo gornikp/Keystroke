@@ -26,6 +26,8 @@ namespace Bjometrja2
         bool previousWasSpace;
         int spaceCounter;
         int spaceCounter2;
+        List<Person> persons;
+        DataProcessing dataProcessing;
         public MainWindow()
         {
             InitializeComponent();
@@ -33,10 +35,10 @@ namespace Bjometrja2
         }
         private void restartValues ()
         {
-            textBox.IsEnabled = true;
-            textBoxFirst.IsEnabled = false;
-            textBoxSecond.IsEnabled = false;
-            textBoxThird.IsEnabled = false;
+            textBox.IsEnabled = false;
+            textBoxFirst.IsEnabled = true;
+            textBoxSecond.IsEnabled = true;
+            textBoxThird.IsEnabled = true;
             vectors1 = new List<long[]>(3);
             vectors2 = new List<long[]>(3);
             timer = new Stopwatch();
