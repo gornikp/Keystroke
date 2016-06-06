@@ -13,9 +13,10 @@ namespace Bjometrja2
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<long[]> vectors1;
+        List<long[]> vectors2;
         Stopwatch timer;
         Stopwatch timer2;
-
         public long[] ButtonDownTime;
         public long[] ButtonDownCount;
         DateTime buttonDown;
@@ -28,6 +29,8 @@ namespace Bjometrja2
         public MainWindow()
         {
             InitializeComponent();
+            vectors1 = new List<long[]>(3);
+            vectors2 = new List<long[]>(3);
             timer = new Stopwatch();
             timer2 = new Stopwatch();
             ButtonDownTime = new long[26];
@@ -35,7 +38,11 @@ namespace Bjometrja2
             sapceTime = new TimeSpan();
             sapceTime2 = new TimeSpan();
             previousWasSpace = false;
-
+            for (int i=0; i < 3; i++)
+            {
+                vectors1.Add(new long[26]);
+                vectors2.Add(new long[4]);
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -63,7 +70,8 @@ namespace Bjometrja2
             //}
             dataGrid.AutoGenerateColumns = true;
             dataGrid.ItemsSource = lista.DefaultView;
-            MessageBox.Show("done");
+            Console.WriteLine(vectors1);
+            Console.WriteLine(vectors2);
         }
         
         private void textBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -101,37 +109,6 @@ namespace Bjometrja2
             }     
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e) // ogólnie pokazuje wszystkie wartości z obu wektorów trzeba tylko to wrzucać do wektora jakiegoś :)
-        {
-            timer.Stop();
-            long[] MeanButtonDownTime = new long[26];
-            long meanTimeBetweenClicks = timer.ElapsedMilliseconds;
-            long[] ButtonDownCount2 = (long[])ButtonDownCount.Clone(); // klonowanie by nie zmieniać globalnych zmiennych
-            long meanvalueHelper = 26;
-
-            meanTimeBetweenClicks -= SumOfArray(ButtonDownTime); 
-            meanTimeBetweenClicks /= ( SumOfArray(ButtonDownCount) + spaceCounter);
-
-            for (int i = 0; i < 26; i++)
-            {
-                if (ButtonDownCount2[i] == 0)
-                {
-                    ButtonDownCount2[i] = 1;
-                    meanvalueHelper--;
-                }
-                MeanButtonDownTime[i] = (ButtonDownTime[i] / ButtonDownCount2[i]);
-                Console.WriteLine(MeanButtonDownTime[i]);
-            }
-
-            int output = sapceTime.Milliseconds / spaceCounter;
-            int output2 = sapceTime2.Milliseconds / spaceCounter2;
-            long meanbuttondowntime = SumOfArray(MeanButtonDownTime) / meanvalueHelper;
-
-            Console.WriteLine(meanbuttondowntime);
-            Console.WriteLine(meanTimeBetweenClicks);
-            Console.WriteLine(output);
-            Console.WriteLine(output2);
-        }
         private long SumOfArray(long[] array)
         {
             long sum = 0;
@@ -151,6 +128,70 @@ namespace Bjometrja2
                 spaceCounter++;
                 previousWasSpace = true;
             }
+            if (textBox.Text.Length == int.Parse(textBoxFirst.Text.ToString())  )
+            {
+                processKeysValues(0);
+            }
+            if (textBox.Text.Length == int.Parse(textBoxSecond.Text.ToString()))
+            {
+                processKeysValues(1);
+            }
+            if (textBox.Text.Length == int.Parse(textBoxThird.Text.ToString()))
+            {
+                processKeysValues(2);
+                // tutaj mamy już 3 wektory, można przeprowadzić porównaie XD
+            }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            int a;
+            bool value1 = int.TryParse(textBoxFirst.Text.ToString(),out a);
+            bool value2 = int.TryParse(textBoxSecond.Text.ToString(), out a);
+            bool value3 = int.TryParse(textBoxThird.Text.ToString(), out a);
+            if (value1 && value2 && value3)
+            {
+                textBox.IsEnabled = true;
+            }
+            else
+                MessageBox.Show("NaN");
+        }
+        private void processKeysValues(int threshold)
+        {
+            timer.Stop();
+            long[] MeanButtonsDownTime = new long[26];
+            long meanTimeBetweenClicks = timer.ElapsedMilliseconds;
+            long[] ButtonDownCount2 = (long[])ButtonDownCount.Clone(); // klonowanie by nie zmieniać globalnych zmiennych
+            long meanvalueHelper = 26;
+
+            meanTimeBetweenClicks -= SumOfArray(ButtonDownTime);
+            meanTimeBetweenClicks /= (SumOfArray(ButtonDownCount) + spaceCounter);
+
+            for (int i = 0; i < 26; i++)
+            {
+                if (ButtonDownCount2[i] == 0)
+                {
+                    ButtonDownCount2[i] = 1;
+                    meanvalueHelper--;
+                }
+                MeanButtonsDownTime[i] = (ButtonDownTime[i] / ButtonDownCount2[i]);
+                Console.WriteLine(MeanButtonsDownTime[i]);
+                vectors1[threshold][i] = MeanButtonsDownTime[i];
+            }
+
+            int buttonSpaceTime = sapceTime.Milliseconds / spaceCounter;
+            int spaceButtonTime = sapceTime2.Milliseconds / spaceCounter2;
+            long meanButtonDownTime = SumOfArray(MeanButtonsDownTime) / meanvalueHelper;
+
+            Console.WriteLine(meanButtonDownTime);
+            Console.WriteLine(meanTimeBetweenClicks);
+            Console.WriteLine(buttonSpaceTime);
+            Console.WriteLine(spaceButtonTime);
+            Console.WriteLine("____________________________________________---------------------------------------_________________________________--");
+            vectors2[threshold][0] = meanButtonDownTime;
+            vectors2[threshold][1] = meanTimeBetweenClicks;
+            vectors2[threshold][2] = buttonSpaceTime;
+            vectors2[threshold][3] = spaceButtonTime;
         }
     } 
 }
