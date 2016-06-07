@@ -58,15 +58,15 @@ namespace Bjometrja2
         private void button_Click(object sender, RoutedEventArgs e)
         {
             restartValues();
-            DBConnect dbconnector = new DBConnect();
-            DataTable lista = dbconnector.SelectAll();
-            string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1
-            string[] splittedstring = elo.Split(' ');
-            List<string[]> splied = new List<string[]>();
-            foreach (var item in splittedstring)
-            {
-                splied.Add(item.Split('_'));
-            }
+            //DBConnect dbconnector = new DBConnect();
+            //DataTable lista = dbconnector.SelectAll();
+            //string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1
+            //string[] splittedstring = elo.Split(' ');
+            //List<string[]> splied = new List<string[]>();
+            //foreach (var item in splittedstring)
+            //{
+            //    splied.Add(item.Split('_'));
+            //}
             //foreach (string[] keyEvent in splied)
             //{
             //    foreach (var item in keyEvent)
@@ -77,8 +77,8 @@ namespace Bjometrja2
             //        }
             //    }
             //}
-            dataGrid.AutoGenerateColumns = true;
-            dataGrid.ItemsSource = lista.DefaultView;
+            //dataGrid.AutoGenerateColumns = true;
+            //dataGrid.ItemsSource = lista.DefaultView;
             Console.WriteLine(vectors1);
             Console.WriteLine(vectors2);
         }
@@ -148,7 +148,8 @@ namespace Bjometrja2
             if (textBox.Text.Length == int.Parse(textBoxThird.Text.ToString()))
             {
                 processKeysValues(2);
-                // tutaj mamy już 3 wektory, można przeprowadzić porównaie XD
+                textBox.IsEnabled = false;
+                MessageBox.Show("done, tu ma sie opdalać okienko z wynikiem XD");
             }
         }
 
