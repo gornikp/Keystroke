@@ -10,7 +10,6 @@ namespace Bjometrja2
     class DataProcessing
     {
         DBConnect dbConnect { get; set; }
-
         public DataProcessing(DBConnect dbc)
         {
             this.dbConnect = dbc;
