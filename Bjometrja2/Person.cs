@@ -9,7 +9,7 @@ namespace Bjometrja2
     class Person
     {
         int id { get; set; }
-        List<long[]> firstVector { get; set; }
-        List<long[]> secondVector { get; set; }
+        long[] firstVector { get; set; }
+        long[] secondVector { get; set; }
     }
 }
