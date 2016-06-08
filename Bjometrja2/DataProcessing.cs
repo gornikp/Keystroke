@@ -19,31 +19,35 @@ namespace Bjometrja2
             List<InputData> groupedInputData = new List<InputData>();
             foreach(string item in getInput1ByUserId(userId))
             {
-                string[] itemSplitted = item.Split('_');
-                if (itemSplitted[0] != "")
+                string[] split = item.Split(' ');
+                foreach (string splittedItem in split)
                 {
-                    if (getInputDataByAscii(groupedInputData, itemSplitted[1]) == null)
+                    string[] splittedSplittedItem = splittedItem.Split('_');
+                    if (splittedSplittedItem[0] != "")
                     {
-                        if (itemSplitted[0] == "u")
+                        if (getInputDataByAscii(groupedInputData, splittedSplittedItem[1]) == null)
                         {
-                            groupedInputData.Add(new InputData(itemSplitted[1], Convert.ToInt16(itemSplitted[2])));
+                            if (splittedSplittedItem[0] == "u")
+                            {
+                                groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2])));
+                            }
+                            if (splittedSplittedItem[0] == "d")
+                            {
+                                groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2]), null));
+                            }
                         }
-                        if (itemSplitted[0] == "d")
+                        else
                         {
-                            groupedInputData.Add(new InputData(itemSplitted[1], Convert.ToInt16(itemSplitted[2]), null));
-                        }
-                    }
-                    else
-                    {
-                        InputData inputData = getInputDataByAscii(groupedInputData, itemSplitted[1]);
-                        if (itemSplitted[0] == "u")
-                        {
-                            inputData.timeInMilisUp += Convert.ToInt16(itemSplitted[2]);
-                        }
-                        if (itemSplitted[0] == "d")
-                        {
-                            inputData.timeInMilisDown += Convert.ToInt16(itemSplitted[2]);
-                            inputData.buttonCounter++;
+                            InputData inputData = getInputDataByAscii(groupedInputData, splittedSplittedItem[1]);
+                            if (splittedSplittedItem[0] == "u")
+                            {
+                                inputData.timeInMilisUp += Convert.ToInt64(splittedSplittedItem[2]);
+                            }
+                            if (splittedSplittedItem[0] == "d")
+                            {
+                                inputData.timeInMilisDown += Convert.ToInt64(splittedSplittedItem[2]);
+                                inputData.buttonCounter++;
+                            }
                         }
                     }
                 }
@@ -60,11 +64,26 @@ namespace Bjometrja2
             
         }
 
-        private string[] getInput1ByUserId(int userId)
+        private List<string> getInput1ByUserId(int userId)
         {
             DataTable dt = dbConnect.SelectByID(userId);
-            string input1 = dt.Rows[3].ItemArray[3].ToString();// pobiera input 1
-            return input1.Split(' ');
+            List<string> inputsOfUserById = new List<string>();
+            for (int i=0;i<dt.Rows.Count; i++)
+            {
+                inputsOfUserById.Add(dt.Rows[i].ItemArray[3].ToString());
+            }
+            return inputsOfUserById;
+        }
+        public string[] getUserIds()
+        {
+            string[] userIds = new string[300];
+            DataTable dt = dbConnect.SelectAll();
+            DataRowCollection ss = dt.Rows;
+            foreach (DataRow dr in dt.Rows)
+            {
+                userIds[Convert.ToInt16(dr.ItemArray[1])] = dr.ItemArray[1].ToString();
+            }
+            return userIds;
         }
 
         private InputData getInputDataByAscii(List<InputData> listInputData, string ascii)

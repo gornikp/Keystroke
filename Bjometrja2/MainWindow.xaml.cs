@@ -57,32 +57,24 @@ namespace Bjometrja2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            dataProcessing = new DataProcessing(new DBConnect());
+            DBConnect dbConnect = new DBConnect();
+            dataProcessing = new DataProcessing(dbConnect);
             restartValues();
-            List<InputData> id = dataProcessing.getFirstVectorByUserId(200);
-            //DBConnect dbconnector = new DBConnect();
-            //DataTable lista = dbconnector.SelectAll();
-            //string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1
-            //string[] splittedstring = elo.Split(' ');
-            //List<string[]> splied = new List<string[]>();
-            //foreach (var item in splittedstring)
-            //{
-            //    splied.Add(item.Split('_'));
-            //}
-            //foreach (string[] keyEvent in splied)
-            //{
-            //    foreach (var item in keyEvent)
-            //    {
-            //        if(item[0] == 'd')
-            //        {
+            persons = new List<Person>();
+            foreach(string item in dataProcessing.getUserIds())
+            {
+                if(item!=null)
+                {
+                    persons.Add(new Person(item, dataProcessing.getFirstVectorByUserId(Convert.ToInt16(item))));
+                }
+            }
 
-            //        }
-            //    }
-            //}
+          //  List<InputData> id = dataProcessing.getFirstVectorByUserId(176);
+
+           // string[] userIds = dataProcessing.getUserIds();
+            Console.WriteLine("benis");
             //dataGrid.AutoGenerateColumns = true;
             //dataGrid.ItemsSource = lista.DefaultView;
-            Console.WriteLine(vectors1);
-            Console.WriteLine(vectors2);
         }
         
         private void textBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)

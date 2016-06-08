@@ -8,8 +8,14 @@ namespace Bjometrja2
 {
     class Person
     {
-        int id { get; set; }
-        long[] firstVector { get; set; }
+        string id { get; set; }
+        List<InputData> firstVector { get; set; }
         long[] secondVector { get; set; }
+
+        public Person(string id, List<InputData> firstVector)
+        {
+            this.id = id;
+            this.firstVector = firstVector;
+        }
     }
 }

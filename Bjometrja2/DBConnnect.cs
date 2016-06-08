@@ -103,6 +103,26 @@ namespace Bjometrja2
                 return null;
             }
         }
+
+        public DataTable SelectAllUserIds()
+        {
+            string query = "SELECT user_id FROM tx_badanie01 ORDER BY user_id,time";
+            if (this.OpenConnection() == true)
+            {
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                DataTable userIdList = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(userIdList);
+                this.CloseConnection();
+
+                return userIdList;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public DataTable SelectByID(int id)
         {
             string query = "SELECT * FROM tx_badanie01 WHERE user_id = " + id;
