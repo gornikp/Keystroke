@@ -16,24 +16,43 @@ namespace Bjometrja2
         }
         public List<InputData> getFirstVectorByUserId(int userId)
         {
-            List<InputData> splitted = new List<InputData>();
+            List<InputData> groupedInputData = new List<InputData>();
             foreach(string item in getInput1ByUserId(userId))
             {
                 string[] itemSplitted = item.Split('_');
-                if(itemSplitted[0] == "d")
+                if (itemSplitted[0] != "")
                 {
-                    if(getInputDataByAscii(splitted, itemSplitted[1]) == null)
+                    if (getInputDataByAscii(groupedInputData, itemSplitted[1]) == null)
                     {
-                        splitted.Add(new InputData(itemSplitted[1], Convert.ToInt16(itemSplitted[2])));
+                        if (itemSplitted[0] == "u")
+                        {
+                            groupedInputData.Add(new InputData(itemSplitted[1], Convert.ToInt16(itemSplitted[2])));
+                        }
+                        if (itemSplitted[0] == "d")
+                        {
+                            groupedInputData.Add(new InputData(itemSplitted[1], Convert.ToInt16(itemSplitted[2]), null));
+                        }
                     }
                     else
                     {
-                        InputData inputData = getInputDataByAscii(splitted, itemSplitted[1]);
-                        inputData.timeInMilis += Convert.ToInt16(itemSplitted[2]);
+                        InputData inputData = getInputDataByAscii(groupedInputData, itemSplitted[1]);
+                        if (itemSplitted[0] == "u")
+                        {
+                            inputData.timeInMilisUp += Convert.ToInt16(itemSplitted[2]);
+                        }
+                        if (itemSplitted[0] == "d")
+                        {
+                            inputData.timeInMilisDown += Convert.ToInt16(itemSplitted[2]);
+                            inputData.buttonCounter++;
+                        }
                     }
                 }
             }
-            return splitted;
+            foreach(InputData inputData in groupedInputData)
+            {
+                inputData.averageTime = ((inputData.timeInMilisUp - inputData.timeInMilisDown) / inputData.buttonCounter);
+            }
+            return groupedInputData;
         }
 
         public void getSecondVectorByUserId(int userId)

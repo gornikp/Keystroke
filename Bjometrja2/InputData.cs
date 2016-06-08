@@ -9,13 +9,28 @@ namespace Bjometrja2
     class InputData
     {
         public string asciiCode { get; set; }
-        public int timeInMilis;
+        public Int64 timeInMilisUp;
+        public Int64 timeInMilisDown;
+        public int buttonCounter;
+        public long averageTime;
 
-        public InputData(string asciiCode, int timeInMilis)
+        public InputData(string asciiCode, Int64 timeInMilisUp)
         {
             this.asciiCode = asciiCode;
-            this.timeInMilis = timeInMilis;
+            this.timeInMilisUp = timeInMilisUp;
+            this.buttonCounter = 1;
+            this.averageTime = 0;
         }
+
+        public InputData(string asciiCode, Int64 timeInMilisDown, string fakeParameter)
+        {
+            this.asciiCode = asciiCode;
+            this.timeInMilisDown = timeInMilisDown;
+            this.buttonCounter = 1;
+            this.averageTime = 0;
+        }
+
+
 
     }
 
