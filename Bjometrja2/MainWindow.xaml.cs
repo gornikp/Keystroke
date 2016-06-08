@@ -57,7 +57,9 @@ namespace Bjometrja2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            dataProcessing = new DataProcessing(new DBConnect());
             restartValues();
+            List<InputData> id = dataProcessing.getFirstVectorByUserId(200);
             //DBConnect dbconnector = new DBConnect();
             //DataTable lista = dbconnector.SelectAll();
             //string elo = lista.Rows[3].ItemArray[3].ToString();// pobiera input 1

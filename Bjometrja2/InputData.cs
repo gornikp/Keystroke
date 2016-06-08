@@ -8,6 +8,15 @@ namespace Bjometrja2
 {
     class InputData
     {
+        public string asciiCode { get; set; }
+        public int timeInMilis;
+
+        public InputData(string asciiCode, int timeInMilis)
+        {
+            this.asciiCode = asciiCode;
+            this.timeInMilis = timeInMilis;
+        }
 
     }
+
 }
