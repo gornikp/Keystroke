@@ -65,6 +65,7 @@ namespace Bjometrja2
             {
                 if(item!=null)
                 {
+                    
                     persons.Add(new Person(item, dataProcessing.getFirstVectorByUserId(Convert.ToInt16(item))));
                 }
             }

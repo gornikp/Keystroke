@@ -9,10 +9,10 @@ namespace Bjometrja2
     class Person
     {
         public string id { get; set; }
-        public List<InputData> firstVector { get; set; }
+        public Dictionary<string, InputData> firstVector { get; set; }
         public long[] secondVector { get; set; }
 
-        public Person(string id, List<InputData> firstVector)
+        public Person(string id, Dictionary<string, InputData> firstVector)
         {
             this.id = id;
             this.firstVector = firstVector;

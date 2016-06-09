@@ -15,9 +15,9 @@ namespace Bjometrja2
             this.dbConnect = dbc;
         }
 
-        public List<InputData> getFirstVectorByUserId(int userId) // metoda do pobierania inputow z sumowanym id
+        public Dictionary<string, InputData> getFirstVectorByUserId(int userId) // metoda do pobierania inputow z sumowanym id
         {
-            List<InputData> groupedInputData = new List<InputData>();
+            Dictionary<string, InputData> groupedInputData = new Dictionary<string, InputData>();
             foreach (string item in getInput1ByUserId(userId))
             {
                 string[] split = item.Split(' ');
@@ -32,11 +32,11 @@ namespace Bjometrja2
                         {
                             if (splittedSplittedItem[0] == "u")
                             {
-                                groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2])));
+                                groupedInputData.Add(splittedSplittedItem[1], new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2])));
                             }
                             if (splittedSplittedItem[0] == "d")
                             {
-                                groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2]), null));
+                                groupedInputData.Add(splittedSplittedItem[1], new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2]), null));
                             }
                         }
                         else
@@ -55,7 +55,8 @@ namespace Bjometrja2
                     }
                 }
             }
-            foreach (InputData inputData in groupedInputData)
+            Dictionary<string, InputData>.ValueCollection values = groupedInputData.Values;
+            foreach (InputData inputData in values)
             {
                 inputData.averageTime = ((inputData.timeInMilisUp - inputData.timeInMilisDown) / inputData.buttonCounter);
             }
@@ -165,9 +166,11 @@ namespace Bjometrja2
             return userIds;
         }
 
-        private InputData getInputDataByAscii(List<InputData> listInputData, string ascii)
+        private InputData getInputDataByAscii(Dictionary<string, InputData> inputData, string ascii)
         {
-            return listInputData.Find(x => x.asciiCode == ascii);
+            InputData data = new InputData();
+            inputData.TryGetValue(ascii, out data);
+            return data;
         }
     }
 }
