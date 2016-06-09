@@ -28,10 +28,13 @@ namespace Bjometrja2
         int spaceCounter2;
         List<Person> persons;
         DataProcessing dataProcessing;
+        SVDataProcessing svDataProcessing;
+        DBConnect dbConnect;
         public MainWindow()
         {
             InitializeComponent();
             restartValues();
+            dbConnect = new DBConnect();
         }
         private void restartValues ()
         {
@@ -57,7 +60,6 @@ namespace Bjometrja2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            DBConnect dbConnect = new DBConnect();
             dataProcessing = new DataProcessing(dbConnect);
             restartValues();
             persons = new List<Person>();
@@ -203,6 +205,11 @@ namespace Bjometrja2
             vectors2[threshold][1] = meanTimeBetweenClicks;
             vectors2[threshold][2] = buttonSpaceTime;
             vectors2[threshold][3] = spaceButtonTime;
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            svDataProcessing = new SVDataProcessing(dbConnect);
         }
     } 
 }

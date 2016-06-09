@@ -8,12 +8,13 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="286" KeyDown="textBox_KeyDown" KeyUp="textBox_KeyUp" TextChanged="textBox_TextChanged" IsEnabled="False"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="I wektor" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <DataGrid x:Name="dataGrid" Margin="10,88,10,10"/>
         <TextBox x:Name="textBoxFirst" HorizontalAlignment="Left" Height="23" Margin="10,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
         <TextBox x:Name="textBoxSecond" HorizontalAlignment="Left" Height="23" Margin="69,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
         <TextBox x:Name="textBoxThird" HorizontalAlignment="Left" Height="23" Margin="128,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="button2" Content="Accept" HorizontalAlignment="Left" Margin="187,10,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
+        <Button x:Name="button1" Content="II wektor" HorizontalAlignment="Left" Margin="90,63,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
 
     </Grid>
 </Window>
