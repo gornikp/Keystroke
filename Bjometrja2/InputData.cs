@@ -30,8 +30,9 @@ namespace Bjometrja2
             this.averageTime = 0;
         }
 
-
-
+        public InputData()
+        {
+        }
     }
 
 }

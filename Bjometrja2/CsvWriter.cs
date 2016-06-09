@@ -11,7 +11,7 @@ namespace Bjometrja2
     {
         private static string comma = ",";
         private static string newLine = "\n";
-        private static string alphabet = "abcdefghijklmnopqrstuvwxyz";
+        private static string alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
 
         public static void writeToFile(List<Person> persons, string fileName)
         {
@@ -32,20 +32,21 @@ namespace Bjometrja2
             {
                 csv.Append(newLine);
                 csv.Append(person.id);
-                List<InputData> vector = person.firstVector;
-                foreach (InputData data in vector)
+                Dictionary<string, InputData> vector = person.firstVector;
+                foreach (char letter in alphabet.ToArray())
                 {
+                    string key = letter.ToString();
+                    InputData data = new InputData();
+                    vector.TryGetValue(key, out data);
                     csv.Append(comma);
-                    csv.Append(data.averageTime);
-                    Console.WriteLine(data.asciiCode);
-                }
-                if (vector.Count == alphabet.Count())
-                {
-                    Console.WriteLine("26 znaków");
-                }
-                else
-                {
-                    Console.WriteLine("ej za mało znaków!");
+                    if (data == null)
+                    {
+                        csv.Append(0);
+                    }
+                    else
+                    {
+                        csv.Append(data.averageTime);
+                    }
                 }
             }
             File.WriteAllText(fileName, csv.ToString());
