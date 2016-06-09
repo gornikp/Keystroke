@@ -26,7 +26,7 @@ namespace Bjometrja2
                     string[] splittedSplittedItem = splittedItem.Split('_');
                     if (splittedSplittedItem[0] != "" && isChar(splittedSplittedItem[1]))
                     {
-                        splittedSplittedItem[1] = parseToLower(splittedSplittedItem[1]);
+                        splittedSplittedItem[1] = parseToChar(splittedSplittedItem[1]);
 
                         if (getInputDataByAscii(groupedInputData, splittedSplittedItem[1]) == null)
                         {
@@ -60,6 +60,12 @@ namespace Bjometrja2
                 inputData.averageTime = ((inputData.timeInMilisUp - inputData.timeInMilisDown) / inputData.buttonCounter);
             }
             return groupedInputData;
+        }
+
+        private string parseToChar(string character)
+        {
+            char newchar = (char)Convert.ToInt16(character);
+            return Convert.ToString(newchar);
         }
 
         private string parseToLower(string character)

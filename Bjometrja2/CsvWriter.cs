@@ -37,9 +37,7 @@ namespace Bjometrja2
                 {
                     csv.Append(comma);
                     csv.Append(data.averageTime);
-                    Int16 ascii = Int16.Parse(data.asciiCode);
-                    char character = (char)ascii;
-                    Console.WriteLine(character);
+                    Console.WriteLine(data.asciiCode);
                 }
                 if (vector.Count == alphabet.Count())
                 {
