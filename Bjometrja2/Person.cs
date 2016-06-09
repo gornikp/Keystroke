@@ -10,12 +10,24 @@ namespace Bjometrja2
     {
         public string id { get; set; }
         public Dictionary<string, InputData> firstVector { get; set; }
-        public long[] secondVector { get; set; }
+        public SecondVector secondVector { get; set; }
 
-        public Person(string id, Dictionary<string, InputData> firstVector)
+        public Person withId(string id)
         {
             this.id = id;
+            return this;
+        }
+
+        public Person withFirstVector(Dictionary<string, InputData> firstVector)
+        {
             this.firstVector = firstVector;
+            return this;
+        }
+
+        public Person withSecondVector(SecondVector secondVector)
+        {
+            this.secondVector = secondVector;
+            return this;
         }
     }
 }

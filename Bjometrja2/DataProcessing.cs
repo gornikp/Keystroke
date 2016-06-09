@@ -15,12 +15,11 @@ namespace Bjometrja2
             this.dbConnect = dbc;
         }
 
-        public Dictionary<string, InputData> getFirstVectorByUserId(int userId) // metoda do pobierania inputow z sumowanym id
+        public Dictionary<string, InputData> getFirstVectorByInput(string input) // metoda do pobierania inputow z sumowanym id
         {
             Dictionary<string, InputData> groupedInputData = new Dictionary<string, InputData>();
-            foreach (string item in getInput1ByUserId(userId))
-            {
-                string[] split = item.Split(' ');
+
+                string[] split = input.Split(' ');
                 foreach (string splittedItem in split)
                 {
                     string[] splittedSplittedItem = splittedItem.Split('_');
@@ -54,7 +53,6 @@ namespace Bjometrja2
                         }
                     }
                 }
-            }
             Dictionary<string, InputData>.ValueCollection values = groupedInputData.Values;
             foreach (InputData inputData in values)
             {
@@ -144,7 +142,7 @@ namespace Bjometrja2
             
         }
 
-        private List<string> getInput1ByUserId(int userId)
+        public List<string> getInput1ByUserId(int userId)
         {
             DataTable dt = dbConnect.SelectByID(userId);
             List<string> inputsOfUserById = new List<string>();
