@@ -8,9 +8,9 @@ namespace Bjometrja2
 {
     class Person
     {
-        string id { get; set; }
-        List<InputData> firstVector { get; set; }
-        long[] secondVector { get; set; }
+        public string id { get; set; }
+        public List<InputData> firstVector { get; set; }
+        public long[] secondVector { get; set; }
 
         public Person(string id, List<InputData> firstVector)
         {

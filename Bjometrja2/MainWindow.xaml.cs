@@ -69,9 +69,10 @@ namespace Bjometrja2
                 }
             }
 
-          //  List<InputData> id = dataProcessing.getFirstVectorByUserId(176);
+            //  List<InputData> id = dataProcessing.getFirstVectorByUserId(176);
 
-           // string[] userIds = dataProcessing.getUserIds();
+            // string[] userIds = dataProcessing.getUserIds();
+            CsvWriter.writeToFile(persons, "firstVector.csv");
             Console.WriteLine("benis");
             //dataGrid.AutoGenerateColumns = true;
             //dataGrid.ItemsSource = lista.DefaultView;
