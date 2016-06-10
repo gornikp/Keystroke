@@ -46,6 +46,8 @@ namespace Bjometrja2
             }
             listViewFirstVector.ItemsSource = items;
             listViewSecondVector.ItemsSource = items2;
+            //TODO zapis do pliku csv - odkomentuj góre i dół xD
+            //CsvWriter.writeOutputToFile(FirstVectorList, SecondVectorList, "output.csv", thresholds);
         }
     }
 }

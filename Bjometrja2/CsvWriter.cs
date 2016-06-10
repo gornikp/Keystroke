@@ -74,7 +74,7 @@ namespace Bjometrja2
             }
             File.WriteAllText(fileName, csv.ToString());
         }
-        public static void writeOutputToFile(List<List<PersonVector>> ListpersonsVectors, List<List<Person>> Listpersons, string fileName, string[] thresholds)
+        public static void writeOutputToFile(List<List<PersonVector>> ListpersonsVectors, List<List<Person>> Listpersons, string fileName, int[] thresholds)
         {
             if (!fileName.Contains(".csv"))
             {

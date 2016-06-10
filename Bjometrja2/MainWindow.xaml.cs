@@ -80,7 +80,7 @@ namespace Bjometrja2
                     }
                 }
             }
-
+            //TODO dodać liste wektorów 2, wywołąć funkcje zapisującą do CSV
             CsvWriter.writeToFile(personsVector, "firstVector.csv");
             //CsvWriter.writeToFile(personsVector, "firstVector.csv");
             Console.WriteLine("benis");
@@ -215,7 +215,7 @@ namespace Bjometrja2
             vectors2[threshold][3] = spaceButtonTime;
             List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(personsVector, vectors1[threshold]);
             guestedVectorsType1.Add(GuessedVectors);
-            // TODO wywołanie funkcji porównywania vektorów
+            // TODO wywołanie funkcji porównywania wektorów typu 2
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
