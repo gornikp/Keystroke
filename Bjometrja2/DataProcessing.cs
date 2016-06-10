@@ -15,7 +15,7 @@ namespace Bjometrja2
             this.dbConnect = dbc;
         }
 
-        public Dictionary<string, InputData> getFirstVectorByInput(string input) // metoda do pobierania inputow z sumowanym id
+        public Dictionary<string, InputData> getFirstVectorByInput(string input) 
         {
             Dictionary<string, InputData> groupedInputData = new Dictionary<string, InputData>();
 
@@ -61,13 +61,13 @@ namespace Bjometrja2
             return groupedInputData;
         }
 
-        private string parseToChar(string character)
+        protected string parseToChar(string character)
         {
             char newchar = (char)Convert.ToInt16(character);
             return Convert.ToString(newchar);
         }
 
-        private string parseToLower(string character)
+        protected string parseToLower(string character)
         {
             int convertedChar = Convert.ToInt16(character);
             if (convertedChar <= 90 && convertedChar >= 65)
@@ -77,65 +77,20 @@ namespace Bjometrja2
             else return character;
         }
 
-        private Boolean isChar(string character)
+        protected Boolean isChar(string character)
         {
             return (isLowerLetter(character) || isBiggerLetter(character));
         }
 
-        private Boolean isLowerLetter(string character)
+        protected Boolean isLowerLetter(string character)
         {
             return Convert.ToInt16(character) >= 97 && Convert.ToInt16(character) <= 122;
         }
 
-        private Boolean isBiggerLetter(string character)
+        protected Boolean isBiggerLetter(string character)
         {
             return Convert.ToInt16(character) >= 65 && Convert.ToInt16(character) <= 90;
         }
-
-        // public List<InputData> getFirstVectorByUserIdTest(int userId) // metoda do pobierania inputow z sumowanym id
-        // {
-        //     List<InputData> groupedInputData = new List<InputData>();
-        //     foreach(string item in getInput1ByUserId(userId))
-        //     {
-        //         string[] split = item.Split(' ');
-        //         foreach (string splittedItem in split)
-        //         {
-        //             string[] splittedSplittedItem = splittedItem.Split('_');
-        //             if (splittedSplittedItem[0] != "")
-        //             {
-        //                 if (getInputDataByAscii(groupedInputData, splittedSplittedItem[1]) == null)
-        //                 {
-        //                     if (splittedSplittedItem[0] == "u")
-        //                     {
-        //                         groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2])));
-        //                     }
-        //                     if (splittedSplittedItem[0] == "d")
-        //                     {
-        //                         groupedInputData.Add(new InputData(splittedSplittedItem[1], Convert.ToInt64(splittedSplittedItem[2]), null));
-        //                     }
-        //                 }
-        //                 else
-        //                 {
-        //                     InputData inputData = getInputDataByAscii(groupedInputData, splittedSplittedItem[1]);
-        //                     if (splittedSplittedItem[0] == "u")
-        //                     {
-        //                         inputData.timeInMilisUp += Convert.ToInt64(splittedSplittedItem[2]);
-        //                     }
-        //                     if (splittedSplittedItem[0] == "d")
-        //                     {
-        //                         inputData.timeInMilisDown += Convert.ToInt64(splittedSplittedItem[2]);
-        //                         inputData.buttonCounter++;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     foreach(InputData inputData in groupedInputData)
-        //     {
-        //         inputData.averageTime = ((inputData.timeInMilisUp - inputData.timeInMilisDown) / inputData.buttonCounter);
-        //     }
-        //     return groupedInputData;
-        //} 
 
         public void getSecondVectorByUserId(int userId)
         {
@@ -164,7 +119,7 @@ namespace Bjometrja2
             return userIds;
         }
 
-        private InputData getInputDataByAscii(Dictionary<string, InputData> inputData, string ascii)
+        protected InputData getInputDataByAscii(Dictionary<string, InputData> inputData, string ascii)
         {
             InputData data = new InputData();
             inputData.TryGetValue(ascii, out data);
