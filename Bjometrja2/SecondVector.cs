@@ -8,9 +8,9 @@ namespace Bjometrja2
 {
     class SecondVector
     {
-        long pressTime;
-        long gapTime;
-        long releaseAndSpaceTime;
-        long releaseSpaceAndPushedButtonTime;
+        public long pressTime { get; set; }
+        public long gapTime { get; set; }
+        public long releaseAndSpaceTime { get; set; }
+        public long releaseSpaceAndPushedButtonTime { get; set; }
     }
 }

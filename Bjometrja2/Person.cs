@@ -10,6 +10,7 @@ namespace Bjometrja2
     {
         public string id { get; set; }
         public SecondVector secondVector { get; set; }
+        public long distance { get; set; }
 
         public Person withId(string id)
         {
