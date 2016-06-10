@@ -19,11 +19,11 @@ namespace Bjometrja2
             return this;
         }
 
-        public PersonVector withFirstVector(Dictionary<string, InputData> firstVectord)
+        public PersonVector withFirstVector(Dictionary<string, InputData> firstVector)
         {
             this.firstVector = firstVector;
             return this;
         }
-
+      
     }
 }
