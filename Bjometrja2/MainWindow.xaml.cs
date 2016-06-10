@@ -30,10 +30,13 @@ namespace Bjometrja2
         int spaceCounter2;
         List<PersonVector> persons;
         DataProcessing dataProcessing;
+        SVDataProcessing svDataProcessing;
+        DBConnect dbConnect;
         public MainWindow()
         {
             InitializeComponent();
             restartValues();
+            dbConnect = new DBConnect();
         }
         private void restartValues ()
         {
@@ -62,7 +65,6 @@ namespace Bjometrja2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            DBConnect dbConnect = new DBConnect();
             dataProcessing = new DataProcessing(dbConnect);
             restartValues();
             persons = new List<PersonVector>();
@@ -212,6 +214,11 @@ namespace Bjometrja2
             List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(persons, vectors1[threshold]);
             guestedVectorsType1.Add(GuessedVectors);
             // TODO wywołanie funkcji porównywania vektorów
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            svDataProcessing = new SVDataProcessing(dbConnect);
         }
     } 
 }
