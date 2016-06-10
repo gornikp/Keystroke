@@ -92,11 +92,6 @@ namespace Bjometrja2
             return Convert.ToInt16(character) >= 65 && Convert.ToInt16(character) <= 90;
         }
 
-        public void getSecondVectorByUserId(int userId)
-        {
-            
-        }
-
         public List<string> getInput1ByUserId(int userId)
         {
             DataTable dt = dbConnect.SelectByID(userId);

@@ -37,6 +37,7 @@ namespace Bjometrja2
             InitializeComponent();
             restartValues();
             dbConnect = new DBConnect();
+            persons = new List<PersonVector>();
         }
         private void restartValues ()
         {
@@ -67,7 +68,6 @@ namespace Bjometrja2
         {
             dataProcessing = new DataProcessing(dbConnect);
             restartValues();
-            persons = new List<PersonVector>();
             foreach(string item in dataProcessing.getUserIds())
             {
                 if(item!=null)
@@ -219,6 +219,13 @@ namespace Bjometrja2
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             svDataProcessing = new SVDataProcessing(dbConnect);
+            foreach (string item in svDataProcessing.getUserIds())
+            {
+                if (item != null)
+                {
+                    new Person().withId(item).withSecondVector(svDataProcessing.getSecondVectorById(item));
+                }
+            }
         }
     } 
 }

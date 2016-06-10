@@ -39,7 +39,7 @@ namespace Bjometrja2
             return this;
         }
 
-        public SecondVector withreleaseSpaceAndPushedButtonTime(long releaseSpaceAndPushedButtonTime)
+        public SecondVector withReleaseSpaceAndPushedButtonTime(long releaseSpaceAndPushedButtonTime)
         {
             this.releaseSpaceAndPushedButtonTime = releaseSpaceAndPushedButtonTime;
             return this;
