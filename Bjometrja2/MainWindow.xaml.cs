@@ -112,7 +112,7 @@ namespace Bjometrja2
             {
                 e.Handled = true;
             }
-            if (e.Key != Key.Space)
+            else if (e.Key != Key.Space)
             {
                 buttonDown = DateTime.Now;
                 int key = KeyInterop.VirtualKeyFromKey(e.Key) - 65;
@@ -154,7 +154,8 @@ namespace Bjometrja2
             {
                 processKeysValues(2);
                 textBox.IsEnabled = false;
-                MessageBox.Show("done, tu ma sie opdalać okienko z wynikiem XD");
+                List<PersonVector> GuessedVectors = guestedVectorsType1[0];
+                MessageBox.Show("Pierwszy wektor:");
 
             }
         }

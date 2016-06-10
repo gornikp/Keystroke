@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bjometrja2
 {
-    class SecondVector
+    public class SecondVector
     {
         public long pressTime { get; set; }
         public long gapTime;

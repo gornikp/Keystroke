@@ -34,21 +34,20 @@ namespace Bjometrja2
                 person.distance = sum;
             }
             List<PersonVector> output = personsCopy.OrderBy(x => x.distance).ToList();
-            return new List<PersonVector> { output[0], output[1], personsCopy[2] };
+            return new List<PersonVector> { output[0], output[1], output[2] };
         }
-        //public static List<Person> CompareSecondVectors(List<Person> persons, long[] vector)
-        //{
-        //    List<Person> personsCopy = persons;
-        //    foreach (var person in personsCopy)
-        //    {
-        //        long sum = 0;
-                    
-        //        sum = Math.Abs(person.secondVector. - vector[0]);              
-        //        person.distance = sum;
-        //    }
-        //    List<PersonVector> output = personsCopy.OrderBy(x => x.distance).ToList();
+        public static List<Person> CompareSecondVectors(List<Person> persons, long[] vector)
+        {
+            List<Person> personsCopy = persons;
+            foreach (var person in personsCopy)
+            {
+                double sum = Math.Pow((double)(person.secondVector.pressTime - vector[0]),2) + Math.Pow((double)(person.secondVector.gapTime - vector[1]),2) + Math.Pow((double)(person.secondVector.releaseAndSpaceTime - vector[2]),2) + Math.Pow((double)(person.secondVector.releaseSpaceAndPushedButtonTime - vector[3]),2);
+                sum = Math.Sqrt(sum);
+                person.distance = Convert.ToInt64(sum);
+            }
+            List<Person> output = personsCopy.OrderBy(x => x.distance).ToList();
 
-        //    return new List<PersonVector> { output[0], output[1], personsCopy[2] };
-        //}
+            return new List<Person> { output[0], output[1], output[2] };
+        }
     }
 }

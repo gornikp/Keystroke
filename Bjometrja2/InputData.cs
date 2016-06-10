@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bjometrja2
 {
-    class InputData
+    public class InputData
     {
         public string asciiCode { get; set; }
         public Int64 timeInMilisUp;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bjometrja2
 {
-    class Person
+    public class Person
     {
         public string id { get; set; }
         public SecondVector secondVector { get; set; }
