@@ -14,7 +14,7 @@ namespace Bjometrja2
     public partial class MainWindow : Window
     {
         List<List<PersonVector>> guestedVectorsType1;
-        List<List<PersonVector>> guestedVectorsType2;
+        List<List<Person>> guestedVectorsType2;
         List<long[]> vectors1;
         List<long[]> vectors2;
         Stopwatch timer;
@@ -56,7 +56,7 @@ namespace Bjometrja2
             sapceTime = new TimeSpan();
             sapceTime2 = new TimeSpan();
             guestedVectorsType1 = new List<List<PersonVector>>();
-            guestedVectorsType2 = new List<List<PersonVector>>();
+            guestedVectorsType2 = new List<List<Person>>();
             previousWasSpace = false;
             for (int i = 0; i < 3; i++)
             {
@@ -81,13 +81,10 @@ namespace Bjometrja2
                 }
             }
 
-            //  List<InputData> id = dataProcessing.getFirstVectorByUserId(176);
-
-            // string[] userIds = dataProcessing.getUserIds();
             CsvWriter.writeToFile(personsVector, "firstVector.csv");
+            //CsvWriter.writeToFile(personsVector, "firstVector.csv");
             Console.WriteLine("benis");
-            //dataGrid.AutoGenerateColumns = true;
-            //dataGrid.ItemsSource = lista.DefaultView;
+
         }
         
         private void textBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -158,7 +155,9 @@ namespace Bjometrja2
                 textBox.IsEnabled = false;
                 List<PersonVector> GuessedVectors = guestedVectorsType1[0];
                 MessageBox.Show("Pierwszy wektor:");
-
+                int[] thresholds = new int[]  { int.Parse(textBoxFirst.Text.ToString()), int.Parse(textBoxSecond.Text.ToString()), int.Parse(textBoxThird.Text.ToString())};
+                ResultPage answerWindow = new ResultPage(thresholds, guestedVectorsType1, guestedVectorsType2);
+                answerWindow.Show();
             }
         }
 
