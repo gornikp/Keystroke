@@ -13,6 +13,8 @@ namespace Bjometrja2
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<List<PersonVector>> guestedVectorsType1;
+        List<List<PersonVector>> guestedVectorsType2;
         List<long[]> vectors1;
         List<long[]> vectors2;
         Stopwatch timer;
@@ -26,7 +28,7 @@ namespace Bjometrja2
         bool previousWasSpace;
         int spaceCounter;
         int spaceCounter2;
-        List<Person> persons;
+        List<PersonVector> persons;
         DataProcessing dataProcessing;
         SVDataProcessing svDataProcessing;
         DBConnect dbConnect;
@@ -35,7 +37,6 @@ namespace Bjometrja2
             InitializeComponent();
             restartValues();
             dbConnect = new DBConnect();
-            persons = new List<Person>();
         }
         private void restartValues ()
         {
@@ -51,25 +52,29 @@ namespace Bjometrja2
             ButtonDownCount = new long[26];
             sapceTime = new TimeSpan();
             sapceTime2 = new TimeSpan();
+            guestedVectorsType1 = new List<List<PersonVector>>();
+            guestedVectorsType2 = new List<List<PersonVector>>();
             previousWasSpace = false;
             for (int i = 0; i < 3; i++)
             {
                 vectors1.Add(new long[26]);
                 vectors2.Add(new long[4]);
             }
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             dataProcessing = new DataProcessing(dbConnect);
             restartValues();
+            persons = new List<PersonVector>();
             foreach(string item in dataProcessing.getUserIds())
             {
                 if(item!=null)
                 {
                     foreach (string id in dataProcessing.getInput1ByUserId(Convert.ToInt16(item)))
                     {
-                        persons.Add(new Person().withId(item).withFirstVector(dataProcessing.getFirstVectorByInput(id)));
+                        persons.Add(new PersonVector().withId(item).withFirstVector(dataProcessing.getFirstVectorByInput(id)));
                     }
                 }
             }
@@ -150,6 +155,7 @@ namespace Bjometrja2
                 processKeysValues(2);
                 textBox.IsEnabled = false;
                 MessageBox.Show("done, tu ma sie opdalać okienko z wynikiem XD");
+
             }
         }
 
@@ -205,19 +211,14 @@ namespace Bjometrja2
             vectors2[threshold][1] = meanTimeBetweenClicks;
             vectors2[threshold][2] = buttonSpaceTime;
             vectors2[threshold][3] = spaceButtonTime;
+            List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(persons, vectors1[threshold]);
+            guestedVectorsType1.Add(GuessedVectors);
+            // TODO wywołanie funkcji porównywania vektorów
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             svDataProcessing = new SVDataProcessing(dbConnect);
-            restartValues();
-            foreach (string item in svDataProcessing.getUserIds())
-            {
-                if (item != null)
-                {
-                     persons.Add(new Person().withId(item).withSecondVector(svDataProcessing.getSecondVectorById(item)));
-                }
-            }
         }
     } 
 }

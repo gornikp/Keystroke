@@ -13,7 +13,7 @@ namespace Bjometrja2
         private static string newLine = "\n";
         private static string alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
 
-        public static void writeToFile(List<Person> persons, string fileName)
+        public static void writeToFile(List<PersonVector> persons, string fileName)
         {
             if (!fileName.Contains(".csv")) {
                 fileName += ".csv";
@@ -27,8 +27,7 @@ namespace Bjometrja2
                 csv.Append(comma);
                 csv.Append(letter);
             }
-
-            foreach (Person person in persons)
+            foreach (PersonVector person in persons)
             {
                 csv.Append(newLine);
                 csv.Append(person.id);
