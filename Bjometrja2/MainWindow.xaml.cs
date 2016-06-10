@@ -28,7 +28,8 @@ namespace Bjometrja2
         bool previousWasSpace;
         int spaceCounter;
         int spaceCounter2;
-        List<PersonVector> persons;
+        List<PersonVector> personsVector;
+        List<Person> persons;
         DataProcessing dataProcessing;
         SVDataProcessing svDataProcessing;
         DBConnect dbConnect;
@@ -37,6 +38,8 @@ namespace Bjometrja2
             InitializeComponent();
             restartValues();
             dbConnect = new DBConnect();
+            personsVector = new List<PersonVector>();
+            persons = new List<Person>();
         }
         private void restartValues ()
         {
@@ -67,14 +70,13 @@ namespace Bjometrja2
         {
             dataProcessing = new DataProcessing(dbConnect);
             restartValues();
-            persons = new List<PersonVector>();
             foreach(string item in dataProcessing.getUserIds())
             {
                 if(item!=null)
                 {
                     foreach (string id in dataProcessing.getInput1ByUserId(Convert.ToInt16(item)))
                     {
-                        persons.Add(new PersonVector().withId(item).withFirstVector(dataProcessing.getFirstVectorByInput(id)));
+                        personsVector.Add(new PersonVector().withId(item).withFirstVector(dataProcessing.getFirstVectorByInput(id)));
                     }
                 }
             }
@@ -82,7 +84,7 @@ namespace Bjometrja2
             //  List<InputData> id = dataProcessing.getFirstVectorByUserId(176);
 
             // string[] userIds = dataProcessing.getUserIds();
-            CsvWriter.writeToFile(persons, "firstVector.csv");
+            CsvWriter.writeToFile(personsVector, "firstVector.csv");
             Console.WriteLine("benis");
             //dataGrid.AutoGenerateColumns = true;
             //dataGrid.ItemsSource = lista.DefaultView;
@@ -212,7 +214,7 @@ namespace Bjometrja2
             vectors2[threshold][1] = meanTimeBetweenClicks;
             vectors2[threshold][2] = buttonSpaceTime;
             vectors2[threshold][3] = spaceButtonTime;
-            List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(persons, vectors1[threshold]);
+            List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(personsVector, vectors1[threshold]);
             guestedVectorsType1.Add(GuessedVectors);
             // TODO wywołanie funkcji porównywania vektorów
         }
@@ -220,6 +222,13 @@ namespace Bjometrja2
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             svDataProcessing = new SVDataProcessing(dbConnect);
+            foreach (string item in svDataProcessing.getUserIds())
+            {
+                if (item != null)
+                {
+                    persons.Add(new Person().withId(item).withSecondVector(svDataProcessing.getSecondVectorById(item)));
+                }
+            }
         }
     } 
 }
