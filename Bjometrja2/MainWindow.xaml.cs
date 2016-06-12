@@ -215,6 +215,8 @@ namespace Bjometrja2
             vectors2[threshold][3] = spaceButtonTime;
             List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(personsVector, vectors1[threshold]);
             guestedVectorsType1.Add(GuessedVectors);
+            //List<Person> GuessedVectors2 = VectorComparingSystem.CompareSecondVectors(personsVector2, vectors2[threshold]);
+            //guestedVectorsType2.Add(GuessedVectors2);
             // TODO wywołanie funkcji porównywania wektorów typu 2
         }
 
