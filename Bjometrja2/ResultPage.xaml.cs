@@ -42,12 +42,11 @@ namespace Bjometrja2
             for (int i = 0; i < 3; i++)
             {
                 items.Add(new { column1 = thresholds[i], column2 = FirstVectorList[i][0].id, column3 = FirstVectorList[i][1].id, column4 = FirstVectorList[i][2].id });
-                //items2.Add(new { column1 = thresholds[i], column2 = SecondVectorList[i][0].id, column3 = SecondVectorList[i][1].id, column4 = SecondVectorList[i][2].id });
+                items2.Add(new { column1 = thresholds[i], column2 = SecondVectorList[i][0].id, column3 = SecondVectorList[i][1].id, column4 = SecondVectorList[i][2].id });
             }
             listViewFirstVector.ItemsSource = items;
             listViewSecondVector.ItemsSource = items2;
-            //TODO zapis do pliku csv - odkomentuj góre i dół xD
-            //CsvWriter.writeOutputToFile(FirstVectorList, SecondVectorList, "output.csv", thresholds);
+            CsvWriter.writeOutputToFile(FirstVectorList, SecondVectorList, "output.csv", thresholds);
         }
     }
 }

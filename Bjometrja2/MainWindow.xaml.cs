@@ -80,9 +80,16 @@ namespace Bjometrja2
                     }
                 }
             }
-            //TODO dodać liste wektorów 2, wywołąć funkcje zapisującą do CSV
+            svDataProcessing = new SVDataProcessing(dbConnect);
+            foreach (string item in svDataProcessing.getUserIds())
+            {
+                if (item != null)
+                {
+                    persons.Add(new Person().withId(item).withSecondVector(svDataProcessing.getSecondVectorById(item)));
+                }
+            }
             CsvWriter.writeToFile(personsVector, "firstVector.csv");
-            //CsvWriter.writeToFile(personsVector, "firstVector.csv");
+            CsvWriter.writeSecondVectorToFile(persons, "secondVector.csv");
             Console.WriteLine("benis");
 
         }
@@ -154,6 +161,7 @@ namespace Bjometrja2
                 processKeysValues(2);
                 textBox.IsEnabled = false;
                 List<PersonVector> GuessedVectors = guestedVectorsType1[0];
+                List<Person> GuessedVectors2 = guestedVectorsType2[0];
                 MessageBox.Show("Pierwszy wektor:");
                 int[] thresholds = new int[]  { int.Parse(textBoxFirst.Text.ToString()), int.Parse(textBoxSecond.Text.ToString()), int.Parse(textBoxThird.Text.ToString())};
                 ResultPage answerWindow = new ResultPage(thresholds, guestedVectorsType1, guestedVectorsType2);
@@ -215,9 +223,8 @@ namespace Bjometrja2
             vectors2[threshold][3] = spaceButtonTime;
             List<PersonVector> GuessedVectors = VectorComparingSystem.CompareFirstVectors(personsVector, vectors1[threshold]);
             guestedVectorsType1.Add(GuessedVectors);
-            //List<Person> GuessedVectors2 = VectorComparingSystem.CompareSecondVectors(personsVector2, vectors2[threshold]);
-            //guestedVectorsType2.Add(GuessedVectors2);
-            // TODO wywołanie funkcji porównywania wektorów typu 2
+            List<Person> GuessedVectors2 = VectorComparingSystem.CompareSecondVectors(persons, vectors2[threshold]);
+            guestedVectorsType2.Add(GuessedVectors2);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

@@ -58,12 +58,22 @@ namespace Bjometrja2
                 fileName += ".csv";
             }
 
-            StringBuilder csv = new StringBuilder();          
+            StringBuilder csv = new StringBuilder();
+            csv.Append("ID");
+            csv.Append(comma);
+            csv.Append("Press time");
+            csv.Append(comma);
+            csv.Append("Gap time");
+            csv.Append(comma);
+            csv.Append("Release/Space");
+            csv.Append(comma);
+            csv.Append("Space/Press");
             foreach (Person person in persons)
             {
                 csv.Append(newLine);
                 csv.Append(person.id);
                 SecondVector vector = person.secondVector;
+                csv.Append(comma);
                 csv.Append(vector.pressTime);
                 csv.Append(comma);
                 csv.Append(vector.gapTime);
@@ -82,24 +92,24 @@ namespace Bjometrja2
             }
 
             StringBuilder csv = new StringBuilder();
-            foreach (List<Person> vectors in Listpersons)
-            {
-                int i = 0;
-                csv.Append(thresholds[i++]);
-                csv.Append(comma);
-                foreach (Person vector in vectors)
-                {
-                    csv.Append(vector.id);
-                    csv.Append(comma);
-                }
-                csv.Append(newLine);
-            }
             foreach (List<PersonVector> vectors in ListpersonsVectors)
             {
                 int i = 0;
                 csv.Append(thresholds[i++]);
                 csv.Append(comma);
                 foreach (PersonVector vector in vectors)
+                {
+                    csv.Append(vector.id);
+                    csv.Append(comma);
+                }
+                csv.Append(newLine);
+            }
+            foreach (List<Person> vectors in Listpersons)
+            {
+                int i = 0;
+                csv.Append(thresholds[i++]);
+                csv.Append(comma);
+                foreach (Person vector in vectors)
                 {
                     csv.Append(vector.id);
                     csv.Append(comma);
