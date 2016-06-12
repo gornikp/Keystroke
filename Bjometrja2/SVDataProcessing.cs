@@ -17,6 +17,7 @@ namespace Bjometrja2
             SecondVector sv = new SecondVector();
             int buttonCounter = 0;
             Int64 czasWcisniecia = 0;
+            Int64 czasOdcisniecia = 0; 
             Int64 spacjaUp = 0;
             Int64 spacjaDown = 0;
             Int64 poprzedniUp = 0;
@@ -24,6 +25,7 @@ namespace Bjometrja2
             Int64 trzeciaSrednia = 0;
             Int64 czwartaSrednia = 0;
             Int64 spacjaCounter = 0;
+            int iloscBadan = 0;
             foreach (string input in getInput1ByUserId(Convert.ToInt16(id)))
             {
                 Int64 poprzedni = 0;
@@ -32,7 +34,6 @@ namespace Bjometrja2
                 foreach (string splittedItem in split)
                 {
                     Int64 wcisniecie = 0;
-
                     string[] splittedSplittedItem = splittedItem.Split('_');
                     if (splittedSplittedItem[0] != "")
                     {
@@ -46,6 +47,7 @@ namespace Bjometrja2
                             {
                                 poprzedniUp = Convert.ToInt64(splittedSplittedItem[2]);
                             }
+                            czasOdcisniecia += Convert.ToInt64(splittedSplittedItem[2]);
                             wcisniecie = Convert.ToInt64(splittedSplittedItem[2]);
                             buttonCounter++;
                         }
@@ -70,21 +72,24 @@ namespace Bjometrja2
                             }
                             czasWcisniecia += Convert.ToInt64(splittedSplittedItem[2]);
                             sumaGap += Convert.ToInt64(splittedSplittedItem[2]) - poprzedni;
+                            poprzedni = Convert.ToInt64(splittedSplittedItem[2]);
                         }
 
-                        poprzedni = Convert.ToInt64(splittedSplittedItem[2]);
                     }
                 }
                 sv.gapTime += sumaGap;
+                sv.pressTime += (czasOdcisniecia - czasWcisniecia) / buttonCounter;
+                iloscBadan++;
             }
             if (spacjaCounter != 0) { 
             sv.releaseAndSpaceTime = trzeciaSrednia / spacjaCounter;
             sv.releaseSpaceAndPushedButtonTime = czwartaSrednia / spacjaCounter;
-          }
-            // sv.pressTime = (czasOdcisniecia - czasWcisniecia) / buttonCounter;
+             }
+             sv.pressTime = (czasOdcisniecia - czasWcisniecia) / buttonCounter;
             if (buttonCounter != 0)
             {
-                sv.gapTime = sv.gapTime / buttonCounter;
+                sv.gapTime = sv.gapTime / (buttonCounter - 1);
+                sv.pressTime = sv.pressTime / iloscBadan;
             }
             return sv;
         }
