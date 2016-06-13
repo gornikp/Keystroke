@@ -122,9 +122,9 @@ namespace Bjometrja2
             {
                 buttonDown = DateTime.Now;
                 int key = KeyInterop.VirtualKeyFromKey(e.Key) - 65;
+                timer2.Stop();
                 ButtonDownTime[key] += timer2.ElapsedMilliseconds;
                 ButtonDownCount[key]++;
-                timer2.Stop();
                 timer2.Reset();
             }     
         }

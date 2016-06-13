@@ -29,11 +29,14 @@ namespace Bjometrja2
                     {
                         current = data.averageTime;
                     }
-                    sum += Math.Abs(current - vector[letter - 65]);
+                    if (current != 0 && vector[letter - 65] != 0)
+                    {
+                        sum += Math.Abs(current - vector[letter - 65]);
+                    }
                 }
                 person.distance = sum;
             }
-            List<PersonVector> output = personsCopy.OrderBy(x => x.distance).ToList();
+              List<PersonVector> output = personsCopy.OrderBy(x => x.distance).ToList();
             return new List<PersonVector> { output[0], output[1], output[2] };
         }
         public static List<Person> CompareSecondVectors(List<Person> persons, long[] vector)
