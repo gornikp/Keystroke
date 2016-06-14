@@ -14,7 +14,7 @@
         <TextBox x:Name="textBoxSecond" HorizontalAlignment="Left" Height="23" Margin="69,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54"/>
         <TextBox x:Name="textBoxThird" HorizontalAlignment="Left" Height="23" Margin="128,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="button2" Content="Accept" HorizontalAlignment="Left" Margin="187,10,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
-        <Button x:Name="button1" Content="II wektor" HorizontalAlignment="Left" Margin="90,63,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Button x:Name="button1" Content="clear" HorizontalAlignment="Left" Margin="385,35,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click_1"/>
 
     </Grid>
 </Window>

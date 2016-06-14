@@ -90,7 +90,7 @@ namespace Bjometrja2
             }
             CsvWriter.writeToFile(personsVector, "firstVector.csv");
             CsvWriter.writeSecondVectorToFile(persons, "secondVector.csv");
-            Console.WriteLine("benis");
+            MessageBox.Show("done");
 
         }
         
@@ -162,7 +162,7 @@ namespace Bjometrja2
                 textBox.IsEnabled = false;
                 List<PersonVector> GuessedVectors = guestedVectorsType1[0];
                 List<Person> GuessedVectors2 = guestedVectorsType2[0];
-                MessageBox.Show("Pierwszy wektor:");
+                MessageBox.Show("done");
                 int[] thresholds = new int[]  { int.Parse(textBoxFirst.Text.ToString()), int.Parse(textBoxSecond.Text.ToString()), int.Parse(textBoxThird.Text.ToString())};
                 ResultPage answerWindow = new ResultPage(thresholds, guestedVectorsType1, guestedVectorsType2);
                 answerWindow.Show();
@@ -237,6 +237,12 @@ namespace Bjometrja2
                     persons.Add(new Person().withId(item).withSecondVector(svDataProcessing.getSecondVectorById(item)));
                 }
             }
+        }
+
+        private void button1_Click_1(object sender, RoutedEventArgs e)
+        {
+            restartValues();
+            textBox.Text = "";
         }
     } 
 }

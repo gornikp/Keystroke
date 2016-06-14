@@ -78,14 +78,14 @@ namespace Bjometrja2
                     }
                 }
                 sv.gapTime += sumaGap;
-                sv.pressTime += (czasOdcisniecia - czasWcisniecia) / buttonCounter;
+                sv.pressTime += Math.Abs(czasOdcisniecia - czasWcisniecia) / buttonCounter; /// buttonCounter
                 iloscBadan++;
             }
             if (spacjaCounter != 0) { 
             sv.releaseAndSpaceTime = trzeciaSrednia / spacjaCounter;
             sv.releaseSpaceAndPushedButtonTime = czwartaSrednia / spacjaCounter;
              }
-             sv.pressTime = (czasOdcisniecia - czasWcisniecia) / buttonCounter;
+             sv.pressTime = Math.Abs(czasOdcisniecia - czasWcisniecia) / buttonCounter; /// / buttonCounter
             if (buttonCounter != 0)
             {
                 sv.gapTime = sv.gapTime / (buttonCounter - 1);

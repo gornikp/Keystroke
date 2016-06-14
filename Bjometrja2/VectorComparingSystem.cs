@@ -29,10 +29,10 @@ namespace Bjometrja2
                     {
                         current = data.averageTime;
                     }
-                    if (current != 0 && vector[letter - 65] != 0)
-                    {
+                   // if (current != 0 && vector[letter - 65] != 0)
+                  //  {
                         sum += Math.Abs(current - vector[letter - 65]);
-                    }
+                  //  }
                 }
                 person.distance = sum;
             }
