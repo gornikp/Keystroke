@@ -92,27 +92,25 @@ namespace Bjometrja2
             }
 
             StringBuilder csv = new StringBuilder();
+            int i = 0;
             foreach (List<PersonVector> vectors in ListpersonsVectors)
             {
-                int i = 0;
                 csv.Append(thresholds[i++]);
-                csv.Append(comma);
                 foreach (PersonVector vector in vectors)
                 {
-                    csv.Append(vector.id);
                     csv.Append(comma);
+                    csv.Append(vector.id);
                 }
                 csv.Append(newLine);
             }
+            i = 0;
             foreach (List<Person> vectors in Listpersons)
             {
-                int i = 0;
                 csv.Append(thresholds[i++]);
-                csv.Append(comma);
                 foreach (Person vector in vectors)
                 {
-                    csv.Append(vector.id);
                     csv.Append(comma);
+                    csv.Append(vector.id);
                 }
                 csv.Append(newLine);
             }
